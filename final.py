@@ -1,11 +1,7 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-import os
-import tempfile
-from ffmpy import FFmpeg
-from PIL import Image
-import shutil
-from face_dectected import detect_faces, detect_faces_video
+
+
 from fruit_dectected.yolov5 import detect
 from faceAgeGender_dectected import mainAgeGender
 from face_recognize import mainFace
@@ -19,7 +15,7 @@ st.set_page_config(
 
 with st.sidebar:
     selected = option_menu("Main Menu", ["Introduction", "Nhận Dạng Trái Cây", 'Nhận Diện Tuổi & Giới tính',
-                           'Nhận Diện Gương Mặt', 'Nhận Diện Chữ Viết'], icons=['🔥', 'fruit', 'people', 'face', '🔡'], menu_icon="cast", default_index=0)
+                           'Nhận Diện Gương Mặt', 'Nhận Diện Chữ Viết'], icons=['🔥', ':sunglasses:', 'people', 'face', '🔡'], menu_icon="cast", default_index=0)
 
 
 if selected == "Introduction":
