@@ -29,6 +29,7 @@ detector = cv.FaceDetectorYN.create(
     nms_threshold,
     5
 )
+
 recognizer = cv.FaceRecognizerSF.create(face_recognition, "")
 
 
@@ -107,7 +108,7 @@ def getData(nameUser):
 
         if faces[1] is not None:
             face_align = recognizer.alignCrop(frame, faces[1][0])
-            file_name = f'image/{nameUser}/{nameUser}_{dem:03d}.bmp'
+            file_name = f'./face_recognize/image/{nameUser}/{nameUser}_{dem:03d}.bmp'
             cv.imwrite(file_name, face_align)
             dem += 1
         # Draw results on the input image
