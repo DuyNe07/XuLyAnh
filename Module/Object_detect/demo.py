@@ -89,14 +89,14 @@ def postprocess(frame, outs, outNames):
     return frame
 
 
-def phat_hien_doi_tuong():
+def nhan_dang_doi_tuong():
 
     try:
-        if st.session_state["LoadModel5"] == True:
+        if st.session_state["LoadModel2"] == True:
             print('Đã load model')
             pass
     except:
-        st.session_state["LoadModel5"] = True
+        st.session_state["LoadModel2"] = True
         st.session_state["Net5"] = cv2.dnn.readNet(r'./Module/Object_detect/yolov4.weights',
                                                    r'./Module/Object_detect/yolov4.cfg')
         print('Load model lần đầu')
@@ -104,7 +104,7 @@ def phat_hien_doi_tuong():
     st.session_state["Net5"].setPreferableTarget(0)
     outNames = st.session_state["Net5"].getUnconnectedOutLayersNames()
 
-    col1, col2, col3 = st.columns([1, 7, 1])
+    col1, col2, col3 = st.columns([1, 9, 1])
     with col2:
         st.header('NHẬN DẠNG ĐỐI TƯỢNG')
         st.divider()

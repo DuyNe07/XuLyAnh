@@ -18,7 +18,7 @@ from sklearn.manifold import TSNE
 
 face_detection = ".\\Module\\face_recognize\\model\\face_detection_yunet_2023mar.onnx"
 face_recognition = ".\\Module\\face_recognize\\model\\face_recognition_sface_2021dec.onnx"
-score_threshold = 0.8
+score_threshold = 0.5
 nms_threshold = 0.3
 
 detector = cv.FaceDetectorYN.create(
@@ -27,7 +27,7 @@ detector = cv.FaceDetectorYN.create(
     (320, 320),
     score_threshold,
     nms_threshold,
-    5
+    50
 )
 
 recognizer = cv.FaceRecognizerSF.create(face_recognition, "")
@@ -265,7 +265,7 @@ def predict(type, img, col):
         cv.destroyAllWindows()
     if type == 'img':
         frame = cv.imread(img)
-        scale_factor = 0.4
+        scale_factor = 1
         frame = cv.resize(frame, (0, 0), fx=scale_factor, fy=scale_factor)
 
         frameWidth = frame.shape[1]

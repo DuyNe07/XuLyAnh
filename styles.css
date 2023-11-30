@@ -26,3 +26,17 @@
 [data-testid="stMarkdownContainer"] {
     text-align: center;
 }
+
+.nav,
+.nav-item,
+.nav-link {
+    font-family: Arial, sans-serif;
+}
+
+.st-ar {
+    font-family: "Arial", sans-serif;
+}
+
+#app {
+    font-family: Arial, sans-serif;
+}

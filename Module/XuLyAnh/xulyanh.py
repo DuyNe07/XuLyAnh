@@ -30,7 +30,7 @@ session_state = SessionState()
 
 
 def runXuLyAnh():
-    st.title("Xử lí ảnh số")
+    st.title("Xử lí ảnh")
     col1, col2 = st.columns(2)
     with col1:
         chuong = st.selectbox(
@@ -466,7 +466,7 @@ def runXuLyAnh():
                 if remove:
                     clear_uploaded_files(session_state)
                     st.experimental_rerun()
-    
+
     if chuong == 'Chương 4: Lọc trong miền tần số':
         if xulyanh == 'Spectrum':
             st.markdown("""

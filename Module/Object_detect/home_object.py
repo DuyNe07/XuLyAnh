@@ -127,32 +127,3 @@ def run():
             outs = st.session_state["Net"].forward(outNames)
             img = postprocess(frame, outs)
             st.image(img, caption=None, channels="BGR")
-# def runObjectDetect():
-#     st.header("Phát hiện đối tượng Yolov4")
-#     st.divider()
-#     image_file = st.file_uploader(
-#         "Upload Images", type=["bmp", "png", "jpg", "jpeg"])
-#     if image_file is not None:
-#         col1, col2 = st.columns(2)
-#         image = Image.open(image_file)
-#         col1.image(image, caption='Input')
-#         # Chuyển sang cv2 để dùng sau này
-#         frame = np.array(image)
-#         frame = frame[:, :, [2, 1, 0]]  # BGR -> RGB
-
-#         if st.button('Predict'):
-#             # Process image.
-#             inpWidth = 416
-#             inpHeight = 416
-#             blob = cv2.dnn.blobFromImage(frame.copy(), size=(
-#                 inpWidth, inpHeight), swapRB=True, ddepth=cv2.CV_8U)
-#             # Run a model
-#             st.session_state["Net"].setInput(
-#                 blob, scalefactor=0.00392, mean=[0, 0, 0])
-#             outs = st.session_state["Net"].forward(outNames)
-#             img = postprocess(frame, outs)
-#             col2.image(img, caption='Output', channels="BGR")
-
-#             if st.button("Xoá bộ nhớ"):
-#                 if os.path.exists(image_file):
-#                     shutil.rmtree(image_file)
