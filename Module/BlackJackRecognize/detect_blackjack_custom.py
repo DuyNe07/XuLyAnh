@@ -112,6 +112,21 @@ def convert_video(input_path, output_path):
 
 def runBlackJack():
     st.title("Nhận dạng lá bài tây")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown(
+            """
+                #### Mô tả
+                Model này được training trên tập dữ liệu custom về 53 lá bài tây bằng thư viện OpenCV để phân tích ảnh và scikit-learn. Cho phép phát hiện ra các loại bài khác nhau khi truyền ảnh vào
+                """
+        )
+    with col2:
+        st.markdown(
+            """
+                #### Model được sử dụng
+                📌Tự train trên data custom
+                """
+        )
     st.divider()
 
     result_path = ".\\Module\\BlackJackRecognize\\result\\"

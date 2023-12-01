@@ -6,11 +6,12 @@ from Module.face_recognize.mainFace import mainface
 from Module.nhan_dang_chu_so.home import runChuViet
 from Module.HandWriting.runhand import handwriting_streamlit_show
 from Module.pt_bac2.giai_pt_bac_2 import runPtBac2
-from Module.Object_detect.demo import nhan_dang_doi_tuong
+from Module.Object_detect.Objectdetect import nhan_dang_doi_tuong
 from Module.Fruit_recognize.runFruit import nhan_dang_trai_cay
 from Module.XuLyAnh.xulyanh import runXuLyAnh
 from Module.HelmetDetection.detect_custom import runDetect
 from Module.BlackJackRecognize.detect_blackjack_custom import runBlackJack
+from Module.ExamCheatingDetection.ExamCheatingDetect_streamlit import ExamCheatingDetect_streamlit_show
 
 st.set_page_config(
     page_title="Luong Vu Dinh Duy 2113018",
@@ -114,4 +115,4 @@ elif selected == 'Nhận diện bài tây':
     runBlackJack()
 
 elif selected == 'Nhận diện gian lận':
-    st.title('Đang phát triển')
+    ExamCheatingDetect_streamlit_show()

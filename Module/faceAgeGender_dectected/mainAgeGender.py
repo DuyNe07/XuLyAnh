@@ -189,6 +189,29 @@ def detec_cam():
 def runAgeGender():
     st.title('Nhận diện độ tuổi và giới tính')
 
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown(
+            """
+                #### Mô tả
+                Modul này được xây dựng dựa trên caffemodel được mở rộng từ thư viện của OpenCV. Đầu tiên sẽ sử dụng OpenCV để phát hiện gương mặt sau đó dùng caffemodel để nhận dạng độ tuổi và giới tính của đối tượng đó qua webcam cũng như là hình ảnh được truyền vào
+                """
+        )
+    with col2:
+        st.markdown(
+            """
+                #### Model được sử dụng
+                📌opencv_face_detector_uint8.pb
+
+                📌opencv_face_detector.pbtxt
+
+                📌age_net.caffemodel
+                
+                📌gender_net.caffemodel
+                """
+        )
+    st.divider()
+
     if st.button("Nhận dạng bằng camera"):
         detec_cam()
 

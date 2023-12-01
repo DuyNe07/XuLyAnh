@@ -66,7 +66,22 @@ def detect_helmet_frame(frame):
 
 
 def runDetect():
-    st.title('Nhận dạng nón bảo hiểm')
+    st.title('Nhận diện nón bảo hiểm')
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown(
+            """
+                #### Mô tả
+                Model này được training trên tập dữ liệu custom bằng thư viện OpenCV để phân tích ảnh và scikit-learn. Cho phép phát hiện ra mũ bảo hiểm trong các tấm ảnh được truyền vào.
+                """
+        )
+    with col2:
+        st.markdown(
+            """
+                #### Model được sử dụng
+                📌Tự train trên data custom
+                """
+        )
     st.divider()
     col1, col2 = st.columns(2)
     with col1:

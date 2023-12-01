@@ -9,6 +9,26 @@ def handwriting_streamlit_show():
     result_path = ".\\Module\\Handwriting\\data\\result\\"
     classes_path = ".\\Module\\Handwriting\\data\\words_alpha.txt"
     st.title("Nhận dạng chữ viết tay")
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown(
+            """
+                #### Mô tả
+                Phần này được training bằng thư viện OpenCV và scikit-learn giúp nhận dạng chữ được viết bằng tay. Cho phép nhận dạng bằng cách truyền file vào và điều chỉnh các thông số nhận dạng.
+                """
+        )
+    with col2:
+        st.markdown(
+            """
+                #### Model được sử dụng
+                📌detector.onnx (Tự training)
+
+                📌reader.onnx (Tự training)
+                """
+        )
+    st.divider()
+
     # Upload file
     uploaded_file = st.file_uploader(
         "Upload a JPG, JPEG, PNG file",
