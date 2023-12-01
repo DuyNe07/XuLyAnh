@@ -1,10 +1,9 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-
 from Module.faceAgeGender_dectected.mainAgeGender import runAgeGender
 from Module.face_recognize.mainFace import mainface
-from Module.nhan_dang_chu_so import home
+from Module.nhan_dang_chu_so.home import runChuViet
 from Module.HandWriting.runhand import handwriting_streamlit_show
 from Module.pt_bac2.giai_pt_bac_2 import runPtBac2
 from Module.Object_detect.demo import nhan_dang_doi_tuong
@@ -24,12 +23,23 @@ with open("styles.css") as f:
     css = f.read()
 st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
+st.markdown(
+    """
+    <style>
+        .nav-link {{
+            font-family: "Arial", sans-serif !important;
+        }}
+    <\style>
+
+""", unsafe_allow_html=True
+)
+
 with st.sidebar:
     selected = option_menu("Main Menu", ["Introduction", 'Giải Phương Trình Bậc 2', 'Nhận Diện Gương Mặt',
                                          'Nhận dạng đối tượng',  'Nhận Diện Chữ Số', "Nhận Dạng Trái Cây",
                                          'Xử lí ảnh', 'Nhận Diện Tuổi & Giới tính', 'Nhận Diện Chữ Viết Tay',
-                                         'Nhận diện nón bảo hiểm', 'Nhận diện bài tây'],
-                           icons=['rocket', 'calculator', 'person', 'robot', 'pencil', 'apple', 'image', 'people', 'pencil', '', 'heart'], menu_icon="book", default_index=0)
+                                         'Nhận diện nón bảo hiểm', 'Nhận diện bài tây', 'Nhận diện gian lận'],
+                           icons=['rocket', 'calculator', 'person', 'robot', 'pencil', 'apple', 'image', 'people', 'pencil', 'fire', 'heart', 'book'], menu_icon="book", default_index=0)
 
 
 if selected == "Introduction":
@@ -57,18 +67,21 @@ if selected == "Introduction":
     col1, col2 = st.columns(2)
     with col1:
         st.subheader("6 chức năng chính trong bài")
-        st.write("📖Giải phương trình bậc 2")
-        st.write("📖Nhận dạng gương mặt")
-        st.write("📖Nhận dạng đối tượng")
-        st.write("📖Nhận dạng chữ số viết tay")
-        st.write("📖Nhận dạng 5 loại trái cây")
-        st.write("📖Xử lý ảnh số")
+        st.write("⚡Giải phương trình bậc 2")
+        st.write("⚡Nhận dạng gương mặt")
+        st.write("⚡Nhận dạng đối tượng")
+        st.write("⚡Nhận dạng chữ số viết tay")
+        st.write("⚡Nhận dạng 5 loại trái cây")
+        st.write("⚡Xử lý ảnh số")
     with col2:
         st.subheader("Phần làm thêm")
-        st.write("📖Nhận diện độ tuổi, giới tính")
-        st.write("📖Nhận diện chữ viết tay")
-        st.write("📖Nhận diện nón bảo hiểm")
-        st.write("📖Nhận diện bài tây")
+        st.write("⚡Nhận diện độ tuổi, giới tính")
+        st.write("⚡Nhận diện chữ viết tay")
+        st.write("⚡Nhận diện nón bảo hiểm")
+        st.write("⚡Nhận diện bài tây")
+        st.write("⚡Nhận diện gian lận")
+    st.divider()
+    st.write("Chúc thầy thật nhiều sức khoẻ")
 
 
 if selected == "Nhận Diện Gương Mặt":
@@ -78,9 +91,7 @@ elif selected == "Nhận Diện Tuổi & Giới tính":
     runAgeGender()
 
 elif selected == 'Nhận Diện Chữ Số':
-    st.title("Nhận Diện Chữ Số")
-    st.divider()
-    home.runChuViet()
+    runChuViet()
 
 elif selected == 'Nhận Diện Chữ Viết Tay':
     handwriting_streamlit_show()
@@ -101,3 +112,6 @@ elif selected == 'Nhận diện nón bảo hiểm':
 
 elif selected == 'Nhận diện bài tây':
     runBlackJack()
+
+elif selected == 'Nhận diện gian lận':
+    st.title('Đang phát triển')

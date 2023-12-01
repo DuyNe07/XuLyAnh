@@ -30,13 +30,13 @@
 .nav,
 .nav-item,
 .nav-link {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif !important;
 }
 
 .st-ar {
-    font-family: "Arial", sans-serif;
+    font-family: "Arial", sans-serif !important;
 }
 
 #app {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif !important;
 }

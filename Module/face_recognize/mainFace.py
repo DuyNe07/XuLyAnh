@@ -319,6 +319,23 @@ def delete_temporary_file_by_name(file_name):
 
 def mainface():
     st.title('Nhận diện gương mặt')
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown(
+            """
+            #### Mô tả
+            Phần nhận diện gương mặt sử dụng 2 model mà thầy đã cung cấp tiếp hành quét gương mặt với tên được nhập vào, thực hiện training và cho nhận dạng bằng camera cũng như là truyền hình ảnh vào để nhận diện
+            """
+        )
+    with col2:
+        st.markdown(
+            """
+            #### Model được sử dụng
+            📌 face_detection_yunet_2023mar.onnx
+            
+            📌 face_recognition_sface_2021dec.onnx
+            """
+        )
     st.divider()
     col1, col2 = st.columns([1, 2])
     with col1:

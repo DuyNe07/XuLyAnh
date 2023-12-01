@@ -104,9 +104,31 @@ def nhan_dang_doi_tuong():
     st.session_state["Net5"].setPreferableTarget(0)
     outNames = st.session_state["Net5"].getUnconnectedOutLayersNames()
 
-    col1, col2, col3 = st.columns([1, 9, 1])
+    col1, col2, col3 = st.columns([1, 10, 1])
     with col2:
         st.header('NHẬN DẠNG ĐỐI TƯỢNG')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(
+                """
+                #### Mô tả
+                Module này triển khai một ứng dụng nhận dạng đối tượng sử dụng mô hình YOLOv4. Phần nhận diện đối tượng sử dụng DNN module trong thư viện OpenCV chứa các hàm và lớp liên quan đến Deep Neural Networks (DNN), nơi hỗ trợ triển khai và sử dụng các mô hình học sâu (deep learning) trong quá trình xử lý hình ảnh và video. Sau đó dùng module này tiến hành đọc 1 mô hình nhận dạng đối tượng YOLO v4 từ các hình ảnh được truyền vào.
+                """
+            )
+        with col2:
+            st.markdown(
+                """
+                #### Model được sử dụng
+                📌YOLO v4
+
+                📌yolov4.weights
+
+                📌object_detection_classes_yolov4.txt
+
+                📌yolov4.cfg
+
+                """
+            )
         st.divider()
         image_file = st.file_uploader(
             "Upload Images", type=["bmp", "png", "jpg", "jpeg"])
@@ -135,4 +157,4 @@ def nhan_dang_doi_tuong():
 
 
 if __name__ == '__main__':
-    phat_hien_doi_tuong()
+    nhan_dang_doi_tuong()

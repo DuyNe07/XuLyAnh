@@ -179,3 +179,11 @@ def runBlackJack():
             os.remove(".\Module\BlackJackRecognize\input.mp4")
         if os.path.exists(result_path):
             shutil.rmtree(result_path)
+    st.divider()
+    st.title('Kết quả training')
+    col1, col2 = st.columns(2)
+    col1.image('./Module/BlackJackRecognize/result_train/confusion_matrix.png',
+               caption='confusion_matrix')
+    col2.image('./Module/BlackJackRecognize/result_train/results.png',
+               caption='results')
+    col2.image('./Module/BlackJackRecognize/result_train/val_batch0_labels.jpg')

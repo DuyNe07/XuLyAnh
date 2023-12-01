@@ -111,10 +111,25 @@ def nhan_dang_trai_cay():
         print(st.session_state["LoadModel9"])
         print('Load model lần đầu')
 
-    col1, col2, col3 = st.columns([1, 9, 1])
+    col1, col2, col3 = st.columns([1, 10, 1])
     with col2:
         st.header(
-            'NHẬN DẠNG NĂM LOẠI TRÁI CÂY \n(Apple, Banana, Pineapple, Strawberry, Watermelon)')
+            'NHẬN DẠNG NĂM LOẠI TRÁI CÂY')
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(
+                """
+                #### Mô tả
+                Module nhận dạng 5 loại trái cây triển khai một hệ thống nhận dạng đối tượng dựa trên mô hình ONNX. Em đã tiến hành training lại model này với 5 loại trái cây là Apple, Banana, Pineapple, Strawberry, Watermelon, sau đó xuất ra dưới dạng file onnx và sử dụng thư viện OpenCV và ONNX Runtime để thực hiện dự đoán trên ảnh đầu vào và xác định loại trái cây.
+                """
+            )
+        with col2:
+            st.markdown(
+                """
+                #### Model được sử dụng
+                📌trai_cay.onnx
+                """
+            )
         st.divider()
         img_file_buffer = st.file_uploader(
             "Upload an image", type=["bmp", "png", "jpg", "jpeg"])
@@ -146,6 +161,13 @@ def nhan_dang_trai_cay():
                 if st.button("Xoá bộ nhớ"):
                     st.experimental_rerun()
                     shutil.rmtree(img_file_buffer)
+    st.divider()
+    st.title('Kết quả training')
+    col1, col2 = st.columns(2)
+    col1.image('.\\Module\\Fruit_recognize\\OutputTrain\\confusion_matrix.png',
+               caption='confusion_matrix')
+    col2.image('.\\Module\\Fruit_recognize\\OutputTrain\\results.png',
+               caption='confusion_matrix')
 
 
 if __name__ == "__main__":

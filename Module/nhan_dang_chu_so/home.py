@@ -42,6 +42,25 @@ if 'is_load' not in st.session_state:
 
 
 def runChuViet():
+    st.title("Nhận Diện Chữ Số")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown(
+            """
+                #### Mô tả
+                Module nhận dạng chữ số viết tay MNIST là một phần trong lĩnh vực học máy và trí tuệ nhân tạo. Nó được sử dụng để nhận dạng và phân loại chữ số viết tay từ 0 đến 9. Tập dữ liệu MNIST được sử dụng để huấn luyện và đánh giá hiệu suất của module này.
+                """
+        )
+    with col2:
+        st.markdown(
+            """
+                #### Model được sử dụng
+                📌digit_config.json
+
+                📌digit_weight.h5
+                """
+        )
+    st.divider()
     col1, col2, col3 = st.columns([1, 2, 3])
     with col1:
         taoAnh = st.button('Tạo ảnh', type='primary')
