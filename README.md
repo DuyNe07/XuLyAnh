@@ -2,13 +2,16 @@
 
 This project revolves around using computer vision models to recognize basic objects:
 
--   Faces
--   Fruits
--   Objects
--   Age and Gender
--   Playing Cards
--   Cheating
--   Helmet recognition
+-   [Image Processing Personal Project](#image-processing-personal-project)
+    -   [Project content](#project-content)
+        -   [1. Face recognition](#1-face-recognition)
+        -   [2. Object recognition](#2-object-recognition)
+        -   [3. Fruit recognition](#3-fruit-recognition)
+        -   [4. Age and gender recognition](#4-age-and-gender-recognition)
+        -   [5. Helmet recognition](#5-helmet-recognition)
+        -   [6. Playing card recognition](#6-playing-card-recognition)
+        -   [7. Cheating detection](#7-cheating-detection)
+    -   [Running project](#running-project)
 
 <br>
 
