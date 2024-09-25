@@ -45,28 +45,28 @@ def handwriting_streamlit_show():
             time.sleep(1)
             st.progress(100)
         if "image" in uploaded_file.type:
-            st.image(uploaded_file)
+            st.image(uploaded_file, width=600)
             dest_path = result_path+uploaded_file.name
             os.makedirs(result_path, exist_ok=True)
             with open(dest_path, "wb") as dest_file:
                 dest_file.write(uploaded_file.read())
 
-            scale = st.slider("Điều chỉnh Scale: ", 0.0, 10.0,
-                              step=0.01, value=0.4, key="scale")
-            margin = st.slider("Điều chỉnh margin: ", 0, 25,
-                               step=1, value=1, key="margin")
+            # scale = st.slider("Điều chỉnh Scale: ", 0.0, 10.0,
+            #                   step=0.01, value=0.4, key="scale")
+            # margin = st.slider("Điều chỉnh margin: ", 0, 25,
+            #                    step=1, value=1, key="margin")
             method = st.checkbox(
                 "Mặc định: best_path (Tick để dùng Word beam search)")
-            min_words_per_line = st.slider(
-                "Số từ tối thiểu trên mỗi dòng: ", 1, 10, step=1, value=5, key="min_words_per_line")
-            text_scale = st.slider(
-                "Text size in visualization: ", 0.5, 2.0, step=0.01, value=1.0, key="text_scale")
+            # min_words_per_line = st.slider(
+            #     "Số từ tối thiểu trên mỗi dòng: ", 1, 10, step=1, value=5, key="min_words_per_line")
+            # text_scale = st.slider(
+            #     "Text size in visualization: ", 0.5, 2.0, step=0.01, value=1.0, key="text_scale")
 
-            scale = str(scale)
-            margin = str(margin)
+            # scale = str(scale)
+            # margin = str(margin)
             method = str(method)
-            min_words_per_line = str(min_words_per_line)
-            text_scale = str(text_scale)
+            # min_words_per_line = str(min_words_per_line)
+            # text_scale = str(text_scale)
 
             with st.status("Regconize HandWriting Start!", expanded=True) as status:
                 st.write("Loading Picture File: " + uploaded_file.name)
@@ -75,15 +75,17 @@ def handwriting_streamlit_show():
                 time.sleep(0.5)
                 st.write("Finished Detection!")
                 st.write("Start regconize handwriting")
-                result = subprocess.run(["python", "./Module/Handwriting/detect.py", "--image", dest_path, "--scale", scale, "--margin", margin,
-                                        "--method", method, "--min_words_per_line", min_words_per_line, "--text_scale", text_scale,
-                                         "--output", result_path, "--classes", classes_path], stdout=subprocess.PIPE, text=True)
+                # result = subprocess.run(["python", "./Module/Handwriting/detect.py", "--image", dest_path, "--scale", scale, "--margin", margin,
+                #                         "--method", method, "--min_words_per_line", min_words_per_line, "--text_scale", text_scale,
+                #                          "--output", result_path, "--classes", classes_path], stdout=subprocess.PIPE, text=True)
+                result = subprocess.run(["python", "./Module/Handwriting/detect.py", "--image", dest_path,
+                                        "--method", method, "--output", result_path, "--classes", classes_path], stdout=subprocess.PIPE, text=True)
                 st.write("Finished Regconization!")
                 status.update(label="Successfully! Picture is available!",
                               state="complete", expanded=False)
             result_string = result.stdout
             print(result_string)
-            st.image(result_path + "output_image.jpg")
+            st.image(result_path + "output_image.jpg", width=600)
             st.text_area("Kết quả nhận dạng:", result_string)
 
             bt2 = st.button("Xóa bộ nhớ", type="primary")

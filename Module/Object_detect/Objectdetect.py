@@ -36,9 +36,11 @@ def postprocess(frame, outs, outNames):
         cv2.putText(frame, label, (left, top),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0))
 
+    # st.session_state['Net5'] = cv2.dnn.readNetFromXXX()
     layerNames = st.session_state["Net5"].getLayerNames()
     lastLayerId = st.session_state["Net5"].getLayerId(layerNames[-1])
     lastLayer = st.session_state["Net5"].getLayer(lastLayerId)
+    
 
     classIds = []
     confidences = []

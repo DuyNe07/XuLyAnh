@@ -4,7 +4,7 @@ from tensorflow.keras import datasets
 from tensorflow.keras.models import model_from_json
 import numpy as np
 import random
-import cv2
+
 
 
 def tao_anh_ngau_nhien():
@@ -34,7 +34,7 @@ if 'is_load' not in st.session_state:
     st.session_state.model = model
 
     # load data
-    (_, _), (X_test, y_test) = datasets.mnist.load_data()
+    (_, _), (X_test, y_test) = keras.datasets.mnist.load_data()
     X_test = X_test.reshape((10000, 28, 28, 1))
     st.session_state.X_test = X_test
 
